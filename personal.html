@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Sabrina Siu — Personal Projects</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body { height: 100%; }
+
+    body {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 14px;
+      line-height: 1.65;
+      color: #9b8ec4;
+      background: #ffffff;
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    a:hover { opacity: 0.7; }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      padding: 28px 28px 0;
+      margin-bottom: 2.5em;
+    }
+
+    nav a { text-decoration: none; opacity: 0.45; }
+    nav a.active { opacity: 1; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    nav a:hover { opacity: 0.75; }
+
+    /* gallery */
+    .gallery { width: 100%; }
+
+    .row {
+      display: flex;
+      align-items: flex-end;
+      gap: 0;
+    }
+
+    .row + .row { margin-top: 32px; }
+
+    .project {
+      cursor: pointer;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .project img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* row 1: large | medium | small(keep) */
+    .row-1 .project:nth-child(1) { width: 21%; }
+    .row-1 .project:nth-child(2) { width: 18%; }
+    .row-1 .project:nth-child(3) { width: 22%; }
+
+    /* row 2: small(keep) | dominant | medium | small(keep) */
+    .row-2 { align-items: flex-end; }
+    .row-2 .project:nth-child(1) { width: 17%; }
+    .row-2 .project:nth-child(2) { width: 22%; margin-top: -16px; }
+    .row-2 .project:nth-child(3) { width: 14%; }
+    .row-2 .project:nth-child(4) { width: 14%; align-self: flex-start; }
+
+    /* row 3: large | medium | small(keep) */
+    .row-3 .project:nth-child(1) { width: 25%; }
+    .row-3 .project:nth-child(2) { width: 15%; }
+    .row-3 .project:nth-child(3) { width: 20%; }
+
+    /* placeholder fills remaining width */
+    .slot {
+      flex: 1;
+      border: 1.5px dashed #e0ddf0;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #d0cce8;
+      letter-spacing: 0.05em;
+      cursor: default;
+    }
+
+    /* lightbox */
+    #lightbox-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(226, 237, 230, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 50;
+    }
+
+    #lightbox {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 51;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    #lightbox img {
+      max-width: 80vw;
+      max-height: 72vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    #lightbox-title { font-size: 13px; color: #9b8ec4; text-align: center; }
+
+    #lightbox-close {
+      display: none;
+      position: fixed;
+      top: 28px;
+      right: 32px;
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 14px;
+      color: #9b8ec4;
+      cursor: pointer;
+      opacity: 0.6;
+      z-index: 52;
+    }
+
+    #lightbox-close:hover { opacity: 1; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">home</a>
+    <a href="work.html">work</a>
+    <a href="personal.html" class="active">personal</a>
+  </nav>
+
+  <div class="gallery">
+    <div class="row row-1">
+      <div class="project" data-title="Bok Choy Vase"    data-img="assets/images/bokchoyvase.jpg"><img src="assets/images/bokchoyvase.jpg" alt="Bok Choy Vase"/></div>
+      <div class="project" data-title="Corn Plate"        data-img="assets/images/cornplate_1.PNG"><img src="assets/images/cornplate_1.PNG" alt="Corn Plate"/></div>
+      <div class="project" data-title="Lettuce Tissue Holder" data-img="assets/images/lettuce-tissue-holder.jpg"><img src="assets/images/lettuce-tissue-holder.jpg" alt="Lettuce Tissue Holder"/></div>
+      <div class="slot">+ add photo</div>
+    </div>
+
+    <div class="row row-2">
+      <div class="project" data-title="Match Holder"      data-img="assets/images/matches-new.jpg"><img src="assets/images/matches-new.jpg" alt="Match Holder"/></div>
+      <div class="project" data-title="Cabbage Leaf Dish" data-img="assets/images/IMG_6530.jpg"><img src="assets/images/IMG_6530.jpg" alt="Cabbage Leaf Dish"/></div>
+      <div class="project" data-title="Banana Peel"       data-img="assets/images/IMG_6634.jpg"><img src="assets/images/IMG_6634.jpg" alt="Banana Peel"/></div>
+      <div class="project" data-title="Grapefruit Plate"  data-img="assets/images/IMG_6653.jpg"><img src="assets/images/IMG_6653.jpg" alt="Grapefruit Plate"/></div>
+      <div class="slot">+ add photo</div>
+    </div>
+
+    <div class="row row-3">
+      <div class="project" data-title="Cabbage Leaf Bowl" data-img="assets/images/B6D505D6-0D19-4F63-A3F0-5399223BA28A.JPG"><img src="assets/images/B6D505D6-0D19-4F63-A3F0-5399223BA28A.JPG" alt="Cabbage Leaf Bowl"/></div>
+      <div class="project" data-title="Broccoli Rabe"     data-img="assets/images/IMG_9194.jpg"><img src="assets/images/IMG_9194.jpg" alt="Broccoli Rabe"/></div>
+      <div class="project" data-title="Stack of Oranges"  data-img="assets/images/IMG_9198.jpg"><img src="assets/images/IMG_9198.jpg" alt="Stack of Oranges"/></div>
+      <div class="slot">+ add photo</div>
+    </div>
+  </div>
+
+  <div id="lightbox-backdrop"></div>
+  <div id="lightbox">
+    <img id="lightbox-img" src="" alt=""/>
+    <div id="lightbox-title"></div>
+  </div>
+  <button id="lightbox-close" aria-label="Close">&#x2715; close</button>
+
+  <script>
+    var backdrop  = document.getElementById('lightbox-backdrop');
+    var lightbox  = document.getElementById('lightbox');
+    var lbImg     = document.getElementById('lightbox-img');
+    var lbTitle   = document.getElementById('lightbox-title');
+    var closeBtn  = document.getElementById('lightbox-close');
+
+    document.querySelectorAll('.project').forEach(function(el) {
+      el.addEventListener('click', function() {
+        lbImg.src = el.dataset.img;
+        lbTitle.textContent = el.dataset.title;
+        backdrop.style.display = 'block';
+        lightbox.style.display = 'flex';
+        closeBtn.style.display = 'block';
+      });
+    });
+
+    function close() {
+      backdrop.style.display = 'none';
+      lightbox.style.display = 'none';
+      closeBtn.style.display = 'none';
+    }
+
+    backdrop.addEventListener('click', close);
+    closeBtn.addEventListener('click', close);
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close(); });
+  </script>
+
+</body>
+</html>
