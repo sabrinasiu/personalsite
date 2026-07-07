@@ -56,6 +56,19 @@
 
     .work-item:hover img { transform: scale(1.03); }
 
+    /* framed: gif/image sits contained with padding on a light bg */
+    .work-item.framed {
+      background: #f2f2f0;
+    }
+
+    .work-item.framed img {
+      object-fit: contain;
+      padding: 32px;
+      transform: none !important;
+    }
+
+    .work-item.framed:hover img { transform: none !important; }
+
     .work-item-label {
       position: absolute;
       bottom: 0;
@@ -177,7 +190,8 @@
 
       {
         title: "S4C",
-        cover: "assets/work/Rounded_S4C.png",
+        cover: "assets/work/S4C_Video_Upload.gif",
+        framed: true,
         description: [
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -212,7 +226,7 @@
     } else {
       PROJECTS.forEach(function(p) {
         var a = document.createElement('div');
-        a.className = 'work-item';
+        a.className = 'work-item' + (p.framed ? ' framed' : '');
         a.innerHTML = '<img src="' + p.cover + '" alt="' + p.title + '"><div class="work-item-label">' + p.title + '</div>';
         a.addEventListener('click', function() { open(p); });
         grid.appendChild(a);
