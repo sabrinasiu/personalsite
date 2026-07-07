@@ -82,6 +82,23 @@
 
     .work-item.framed:hover img { transform: none !important; }
 
+    /* filled: image contained within a colored card, no padding */
+    .work-item.filled {
+      background: #f5a9bc;
+      aspect-ratio: 9 / 8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .work-item.filled img {
+      max-width: 85%;
+      max-height: 85%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
 
     .work-item-label {
       position: absolute;
@@ -203,6 +220,17 @@
     var PROJECTS = [
 
       {
+        title: "ScienceBox",
+        cover: "assets/work/ScienceBox.png",
+        detail: "assets/work/ScienceBox_img.webp",
+        filled: true,
+        description: [
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          "<a href=\"https://medium.com/spotify-design/designing-data-science-tools-at-spotify-c01347d5e85b\" target=\"_blank\">Read the full article on Medium →</a>"
+        ]
+      },
+
+      {
         title: "Megaphone",
         cover: "assets/work/Megaphone_Upload.gif",
         framed: true,
@@ -251,7 +279,7 @@
     } else {
       PROJECTS.forEach(function(p) {
         var a = document.createElement('div');
-        a.className = 'work-item' + (p.framed ? ' framed' : '') + (p.portrait ? ' portrait' : '');
+        a.className = 'work-item' + (p.framed ? ' framed' : '') + (p.filled ? ' filled' : '') + (p.portrait ? ' portrait' : '');
         var imgHtml = '<img src="' + p.cover + '" alt="' + p.title + '">';
         a.innerHTML = imgHtml + '<div class="work-item-label">' + p.title + '</div>';
         a.addEventListener('click', function() { open(p); });
@@ -260,7 +288,7 @@
     }
 
     function open(p) {
-      dImg.src = p.cover;
+      dImg.src = p.detail || p.cover;
       dTitle.textContent = p.title;
       var desc = p.description || [];
       var paras = Array.isArray(desc) ? desc : [desc];
