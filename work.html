@@ -56,14 +56,21 @@
 
     .work-item:hover img { transform: scale(1.03); }
 
-    /* framed: gif/image sits contained with padding on a light bg */
+    /* framed: gif sits at natural ratio with rounded corners on light bg */
     .work-item.framed {
       background: #f2f2f0;
+      aspect-ratio: auto;
+      padding: 24px;
+      height: auto;
+      align-items: center;
+      justify-content: center;
     }
 
     .work-item.framed img {
-      object-fit: contain;
-      padding: 32px;
+      width: 100%;
+      height: auto !important;
+      object-fit: fill;
+      border-radius: 12px;
       transform: none !important;
     }
 
@@ -227,7 +234,8 @@
       PROJECTS.forEach(function(p) {
         var a = document.createElement('div');
         a.className = 'work-item' + (p.framed ? ' framed' : '');
-        a.innerHTML = '<img src="' + p.cover + '" alt="' + p.title + '"><div class="work-item-label">' + p.title + '</div>';
+        var imgHtml = '<img src="' + p.cover + '" alt="' + p.title + '">';
+        a.innerHTML = imgHtml + '<div class="work-item-label">' + p.title + '</div>';
         a.addEventListener('click', function() { open(p); });
         grid.appendChild(a);
       });
