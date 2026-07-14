@@ -14,9 +14,21 @@
       font-size: 14px;
       line-height: 1.65;
       color: #2B199F;
-      background: #ffffff;
+      background: radial-gradient(ellipse 70% 55% at var(--mx, 50%) var(--my, 50%), #FAF2ED 0%, #E4EAFF 70%);
       min-height: 100vh;
       padding: 0;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 300px 300px;
+      opacity: 0.18;
     }
 
     a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
@@ -34,57 +46,25 @@
     nav a:hover { opacity: 0.75; }
 
     /* gallery */
-    .gallery { width: 100%; }
-
-    .row {
-      display: flex;
-      align-items: flex-end;
-      gap: 0;
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      padding: 0 28px;
     }
-
-    .row + .row { margin-top: 32px; }
 
     .project {
       cursor: pointer;
       overflow: hidden;
-      flex-shrink: 0;
+      aspect-ratio: 1;
     }
 
     .project img {
       display: block;
       width: 100%;
-      height: auto;
-    }
-
-    /* row 1: large | medium | small(keep) */
-    .row-1 .project:nth-child(1) { width: 21%; }
-    .row-1 .project:nth-child(2) { width: 18%; }
-    .row-1 .project:nth-child(3) { width: 22%; }
-
-    /* row 2: small(keep) | dominant | medium | small(keep) */
-    .row-2 { align-items: flex-end; }
-    .row-2 .project:nth-child(1) { width: 17%; }
-    .row-2 .project:nth-child(2) { width: 22%; margin-top: -16px; }
-    .row-2 .project:nth-child(3) { width: 14%; }
-    .row-2 .project:nth-child(4) { width: 14%; align-self: flex-start; }
-
-    /* row 3: large | medium | small(keep) */
-    .row-3 .project:nth-child(1) { width: 25%; }
-    .row-3 .project:nth-child(2) { width: 15%; }
-    .row-3 .project:nth-child(3) { width: 20%; }
-
-    /* placeholder fills remaining width */
-    .slot {
-      flex: 1;
-      border: 1.5px dashed #e0ddf0;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      color: #d0cce8;
-      letter-spacing: 0.05em;
-      cursor: default;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(1.15);
     }
 
     /* lightbox */
@@ -145,27 +125,29 @@
   </nav>
 
   <div class="gallery">
-    <div class="row row-1">
-      <div class="project" data-title="Bok Choy Vase"    data-img="assets/images/bokchoyvase.jpg"><img src="assets/images/bokchoyvase.jpg" alt="Bok Choy Vase"/></div>
-      <div class="project" data-title="Corn Plate"        data-img="assets/images/cornplate_1.PNG"><img src="assets/images/cornplate_1.PNG" alt="Corn Plate"/></div>
-      <div class="project" data-title="Lettuce Tissue Holder" data-img="assets/images/lettuce-tissue-holder.jpg"><img src="assets/images/lettuce-tissue-holder.jpg" alt="Lettuce Tissue Holder"/></div>
-      <div class="slot">+ add photo</div>
-    </div>
-
-    <div class="row row-2">
-      <div class="project" data-title="Match Holder"      data-img="assets/images/matches-new.jpg"><img src="assets/images/matches-new.jpg" alt="Match Holder"/></div>
-      <div class="project" data-title="Cabbage Leaf Dish" data-img="assets/images/IMG_6530.jpg"><img src="assets/images/IMG_6530.jpg" alt="Cabbage Leaf Dish"/></div>
-      <div class="project" data-title="Banana Peel"       data-img="assets/images/IMG_6634.jpg"><img src="assets/images/IMG_6634.jpg" alt="Banana Peel"/></div>
-      <div class="project" data-title="Grapefruit Plate"  data-img="assets/images/IMG_6653.jpg"><img src="assets/images/IMG_6653.jpg" alt="Grapefruit Plate"/></div>
-      <div class="slot">+ add photo</div>
-    </div>
-
-    <div class="row row-3">
-      <div class="project" data-title="Cabbage Leaf Bowl" data-img="assets/images/B6D505D6-0D19-4F63-A3F0-5399223BA28A.JPG"><img src="assets/images/B6D505D6-0D19-4F63-A3F0-5399223BA28A.JPG" alt="Cabbage Leaf Bowl"/></div>
-      <div class="project" data-title="Broccoli Rabe"     data-img="assets/images/IMG_9194.jpg"><img src="assets/images/IMG_9194.jpg" alt="Broccoli Rabe"/></div>
-      <div class="project" data-title="Stack of Oranges"  data-img="assets/images/IMG_9198.jpg"><img src="assets/images/IMG_9198.jpg" alt="Stack of Oranges"/></div>
-      <div class="slot">+ add photo</div>
-    </div>
+    <div class="project" data-title="Bok Choy Vase"         data-img="assets/images/bokchoyvase.jpg"><img src="assets/images/bokchoyvase.jpg" alt="Bok Choy Vase"/></div>
+    <div class="project" data-title="Corn Plate"             data-img="assets/images/cornplate_1.PNG"><img src="assets/images/cornplate_1.PNG" alt="Corn Plate"/></div>
+    <div class="project" data-title="Lettuce Tissue Holder"  data-img="assets/images/lettuce-tissue-holder.jpg"><img src="assets/images/lettuce-tissue-holder.jpg" alt="Lettuce Tissue Holder"/></div>
+    <div class="project" data-title="Match Holder"           data-img="assets/images/matches-new.jpg"><img src="assets/images/matches-new.jpg" alt="Match Holder"/></div>
+    <div class="project" data-title="Cabbage Leaf Dish"      data-img="assets/images/IMG_6530.jpg"><img src="assets/images/IMG_6530.jpg" alt="Cabbage Leaf Dish"/></div>
+    <div class="project" data-title="Banana Peel"            data-img="assets/images/IMG_6634.jpg"><img src="assets/images/IMG_6634.jpg" alt="Banana Peel"/></div>
+    <div class="project" data-title="Grapefruit Plate"       data-img="assets/images/IMG_6653.jpg"><img src="assets/images/IMG_6653.jpg" alt="Grapefruit Plate"/></div>
+    <div class="project" data-title="Cabbage Leaf Bowl"      data-img="assets/images/B6D505D6-0D19-4F63-A3F0-5399223BA28A.JPG"><img src="assets/images/B6D505D6-0D19-4F63-A3F0-5399223BA28A.JPG" alt="Cabbage Leaf Bowl"/></div>
+    <div class="project" data-title="Broccoli Rabe"          data-img="assets/images/IMG_9194.jpg"><img src="assets/images/IMG_9194.jpg" alt="Broccoli Rabe"/></div>
+    <div class="project" data-title="Stack of Oranges"       data-img="assets/images/IMG_9198.jpg"><img src="assets/images/IMG_9198.jpg" alt="Stack of Oranges"/></div>
+    <div class="project" data-title="Fillo Color"            data-img="assets/images/FilloColor.gif"><img src="assets/images/FilloColor.gif" alt="Fillo Color"/></div>
+    <div class="project" data-title="And"                    data-img="assets/images/and.gif"><img src="assets/images/and.gif" alt="And"/></div>
+    <div class="project" data-title="Moving Name"            data-img="assets/images/moving_name.gif"><img src="assets/images/moving_name.gif" alt="Moving Name"/></div>
+    <div class="project" data-title="Rotating Heart"         data-img="assets/images/rotating_heart.gif"><img src="assets/images/rotating_heart.gif" alt="Rotating Heart"/></div>
+    <div class="project" data-title="IMG 2797"               data-img="assets/images/IMG_2797.gif"><img src="assets/images/IMG_2797.gif" alt="IMG 2797"/></div>
+    <div class="project" data-title="IMG 4045"               data-img="assets/images/IMG_4045.gif"><img src="assets/images/IMG_4045.gif" alt="IMG 4045"/></div>
+    <div class="project" data-title="Happy Face"             data-img="assets/images/happy_face_graininess.gif"><img src="assets/images/happy_face_graininess.gif" alt="Happy Face"/></div>
+    <div class="project" data-title="Hue"                    data-img="assets/images/hue.gif"><img src="assets/images/hue.gif" alt="Hue"/></div>
+    <div class="project" data-title="Rainbow Tears"          data-img="assets/images/rainbow_tears.gif"><img src="assets/images/rainbow_tears.gif" alt="Rainbow Tears"/></div>
+    <div class="project" data-title="Rainbows"               data-img="assets/images/rainbows_2.gif"><img src="assets/images/rainbows_2.gif" alt="Rainbows"/></div>
+    <div class="project" data-title="Joined 1"               data-img="assets/images/joined_video_ad9d3c4c416d42069ece1ae34e19deae.gif"><img src="assets/images/joined_video_ad9d3c4c416d42069ece1ae34e19deae.gif" alt="Joined 1"/></div>
+    <div class="project" data-title="Joined 2"               data-img="assets/images/joined_video_b3d835d7f58643648f28bb2c4857e797.gif"><img src="assets/images/joined_video_b3d835d7f58643648f28bb2c4857e797.gif" alt="Joined 2"/></div>
+    <div class="project" data-title="Joined 3"               data-img="assets/images/joined_video_d0821143e7414152a6e3b5cd641c6265.gif"><img src="assets/images/joined_video_d0821143e7414152a6e3b5cd641c6265.gif" alt="Joined 3"/></div>
   </div>
 
   <div id="lightbox-backdrop"></div>
@@ -201,6 +183,19 @@
     backdrop.addEventListener('click', close);
     closeBtn.addEventListener('click', close);
     document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close(); });
+
+    var tx = 50, ty = 50, cx = 50, cy = 50;
+    document.addEventListener('mousemove', function(e) {
+      tx = (e.clientX / window.innerWidth) * 100;
+      ty = (e.clientY / window.innerHeight) * 100;
+    });
+    (function loop() {
+      cx += (tx - cx) * 0.06;
+      cy += (ty - cy) * 0.06;
+      document.body.style.setProperty('--mx', cx + '%');
+      document.body.style.setProperty('--my', cy + '%');
+      requestAnimationFrame(loop);
+    })();
   </script>
 
 </body>
