@@ -14,7 +14,7 @@
       font-size: 14px;
       line-height: 1.65;
       color: #2B199F;
-      background: radial-gradient(ellipse 70% 55% at var(--mx, 50%) var(--my, 50%), #FAF2ED 0%, #E4EAFF 70%);
+      background: radial-gradient(ellipse 70% 55% at var(--mx, 50%) var(--my, 50%), #ffffff 0%, #E4EAFF 70%);
       min-height: 100vh;
       padding: 0;
       position: relative;
@@ -57,6 +57,7 @@
       cursor: pointer;
       overflow: hidden;
       aspect-ratio: 1;
+      background-color: white;
     }
 
     .project img {
@@ -96,7 +97,8 @@
       display: block;
     }
 
-    #lightbox-title { font-size: 13px; color: #2B199F; text-align: center; }
+    #lightbox-title { font-size: 15px; color: #2B199F; text-align: left; margin-bottom: 0.75em; -webkit-text-stroke: 0.5px currentColor; }
+    #lightbox-desc { font-size: 14px; color: #2B199F; text-align: left; max-width: 520px; line-height: 1.75; opacity: 0.85; -webkit-text-stroke: 0.4px currentColor; }
 
     #lightbox-close {
       display: none;
@@ -125,35 +127,36 @@
   </nav>
 
   <div class="gallery">
-    <div class="project" data-title="Bok Choy Vase"         data-img="assets/images/bokchoyvase.jpg"><img src="assets/images/bokchoyvase.jpg" alt="Bok Choy Vase"/></div>
-    <div class="project" data-title="Corn Plate"             data-img="assets/images/cornplate_1.PNG"><img src="assets/images/cornplate_1.PNG" alt="Corn Plate"/></div>
-    <div class="project" data-title="Lettuce Tissue Holder"  data-img="assets/images/lettuce-tissue-holder.jpg"><img src="assets/images/lettuce-tissue-holder.jpg" alt="Lettuce Tissue Holder"/></div>
-    <div class="project" data-title="Match Holder"           data-img="assets/images/matches-new.jpg"><img src="assets/images/matches-new.jpg" alt="Match Holder"/></div>
-    <div class="project" data-title="Cabbage Leaf Dish"      data-img="assets/images/IMG_6530.jpg"><img src="assets/images/IMG_6530.jpg" alt="Cabbage Leaf Dish"/></div>
-    <div class="project" data-title="Banana Peel"            data-img="assets/images/IMG_6634.jpg"><img src="assets/images/IMG_6634.jpg" alt="Banana Peel"/></div>
-    <div class="project" data-title="Grapefruit Plate"       data-img="assets/images/IMG_6653.jpg"><img src="assets/images/IMG_6653.jpg" alt="Grapefruit Plate"/></div>
-    <div class="project" data-title="Cabbage Leaf Bowl"      data-img="assets/images/B6D505D6-0D19-4F63-A3F0-5399223BA28A.JPG"><img src="assets/images/B6D505D6-0D19-4F63-A3F0-5399223BA28A.JPG" alt="Cabbage Leaf Bowl"/></div>
-    <div class="project" data-title="Broccoli Rabe"          data-img="assets/images/IMG_9194.jpg"><img src="assets/images/IMG_9194.jpg" alt="Broccoli Rabe"/></div>
-    <div class="project" data-title="Stack of Oranges"       data-img="assets/images/IMG_9198.jpg"><img src="assets/images/IMG_9198.jpg" alt="Stack of Oranges"/></div>
-    <div class="project" data-title="Fillo Color"            data-img="assets/images/FilloColor.gif"><img src="assets/images/FilloColor.gif" alt="Fillo Color"/></div>
-    <div class="project" data-title="And"                    data-img="assets/images/and.gif"><img src="assets/images/and.gif" alt="And"/></div>
-    <div class="project" data-title="Moving Name"            data-img="assets/images/moving_name.gif"><img src="assets/images/moving_name.gif" alt="Moving Name"/></div>
-    <div class="project" data-title="Rotating Heart"         data-img="assets/images/rotating_heart.gif"><img src="assets/images/rotating_heart.gif" alt="Rotating Heart"/></div>
-    <div class="project" data-title="IMG 2797"               data-img="assets/images/IMG_2797.gif"><img src="assets/images/IMG_2797.gif" alt="IMG 2797"/></div>
-    <div class="project" data-title="IMG 4045"               data-img="assets/images/IMG_4045.gif"><img src="assets/images/IMG_4045.gif" alt="IMG 4045"/></div>
-    <div class="project" data-title="Happy Face"             data-img="assets/images/happy_face_graininess.gif"><img src="assets/images/happy_face_graininess.gif" alt="Happy Face"/></div>
-    <div class="project" data-title="Hue"                    data-img="assets/images/hue.gif"><img src="assets/images/hue.gif" alt="Hue"/></div>
-    <div class="project" data-title="Rainbow Tears"          data-img="assets/images/rainbow_tears.gif"><img src="assets/images/rainbow_tears.gif" alt="Rainbow Tears"/></div>
-    <div class="project" data-title="Rainbows"               data-img="assets/images/rainbows_2.gif"><img src="assets/images/rainbows_2.gif" alt="Rainbows"/></div>
-    <div class="project" data-title="Joined 1"               data-img="assets/images/joined_video_ad9d3c4c416d42069ece1ae34e19deae.gif"><img src="assets/images/joined_video_ad9d3c4c416d42069ece1ae34e19deae.gif" alt="Joined 1"/></div>
-    <div class="project" data-title="Joined 2"               data-img="assets/images/joined_video_b3d835d7f58643648f28bb2c4857e797.gif"><img src="assets/images/joined_video_b3d835d7f58643648f28bb2c4857e797.gif" alt="Joined 2"/></div>
-    <div class="project" data-title="Joined 3"               data-img="assets/images/joined_video_d0821143e7414152a6e3b5cd641c6265.gif"><img src="assets/images/joined_video_d0821143e7414152a6e3b5cd641c6265.gif" alt="Joined 3"/></div>
+    <div class="project" data-title="Bok choy vase, 2022" data-img="assets/images/bokchoyvase.jpg" data-desc="I took my first ceramics class at a new ceramics studio in Greenpoint, and the assignment was to bring something from our life that we wanted to replicate. At that time, I lived near a small bodega that sold a lot of vegetables, so I wanted to make something to capture that bodega's role in my life. This is basically 4 slab rolled pieces then shaped like leaves, attached to a small hand built pot. This is also the first piece I've sold, at my friend's show in 2023."><img src="assets/images/bokchoyvase.jpg" alt="Bok choy vase"/></div>
+    <div class="project" data-title="Corn, 2024" data-img="assets/images/cornplate_1.PNG" data-desc="I love corn. It's such a fun vegetable to eat and to make. I wanted to capture several foods I loved but in a degraded state, so I naturally gravitated to corn and a piece of sourdough toast. The corn is a slab rolled into a cylinder, then I used the back of a paintbrush to poke indentations to support the corn kernels. I made each corn kernel and placed each with consideration. The sourdough and grilled corn color was made by layering a light touch of colored glaze over the underglazed piece."><img src="assets/images/cornplate_1.PNG" alt="Corn"/></div>
+    <div class="project" data-title="Cabbage leaf vase, 2023" data-img="assets/images/lettuce-tissue-holder.jpg" data-desc="I pressed pieces of napa cabbage into clay to capture the natural cabbage texture. I felt that cabbage texture was best captured by the edges, so I made sure to choose a container shape that allowed me to bend and warp the edges of the cabbage texture to mimic real cabbage. The top of cabbage also always rolls inwards, so I made sure to roll all edges inward."><img src="assets/images/lettuce-tissue-holder.jpg" alt="Cabbage leaf vase"/></div>
+    <div class="project" data-title="Candle holder and matches, 2023" data-img="assets/images/matches-new.jpg" data-desc="I was making candles in my studio apartment kitchen so I thought I would make ceramic candleholders to go along with it. I thought plain candleholders were boring so I added a match box to store used matches."><img src="assets/images/matches-new.jpg" alt="Candle holder and matches"/></div>
+    <div class="project" data-title="Half cabbage leaf spoon rest, 2024" data-img="assets/images/IMG_6530.jpg" data-desc="I currently use this as a spoon rest on my stove. It's the perfect size."><img src="assets/images/IMG_6530.jpg" alt="Half cabbage leaf spoon rest"/></div>
+    <div class="project" data-title="Banana peel, 2024" data-img="assets/images/IMG_6634.jpg" data-desc="I hand rolled 4 pieces of clay to get a more natural flat shape, then cut banana peel shapes and attached them at the ends. I then underglazed the peels, fired it, then added a layer of clear glaze with brown glaze dotted. I had to glaze fire the piece 3 times to get the right amount of aging on the peels."><img src="assets/images/IMG_6634.jpg" alt="Banana peel"/></div>
+    <div class="project" data-title="Plate of orange peels, 2024" data-img="assets/images/IMG_6653.jpg" data-desc="My parents home has the best and juiciest oranges. My grandpa always loved to eat entire gallon tupperware containers full of peeled oranges. I made this plate of oranges to capture the spirit of sharing oranges at the kitchen table."><img src="assets/images/IMG_6653.jpg" alt="Plate of orange peels"/></div>
+    <div class="project" data-title="Cabbage leaf plate, 2024" data-img="assets/images/B6D505D6-0D19-4F63-A3F0-5399223BA28A.JPG" data-desc="I used colored slip to create the darkening colors of a real cabbage leaf. Then cut the lines of the leaf into the colored slip."><img src="assets/images/B6D505D6-0D19-4F63-A3F0-5399223BA28A.JPG" alt="Cabbage leaf plate"/></div>
+    <div class="project" data-title="Broccoli rabe plate, 2025" data-img="assets/images/IMG_9194.jpg" data-desc="My first foray into the concept of plated leftovers. I had already made a lot of cherry tomato halves from a previous project, so I thought about what kind of dish would use cherry tomato halves."><img src="assets/images/IMG_9194.jpg" alt="Broccoli rabe plate"/></div>
+    <div class="project" data-title="Stack of oranges, 2025" data-img="assets/images/IMG_9198.jpg" data-desc="I was inspired by this image I saw with a stack of lemons, so I tried to create a stack of oranges. Its actually very difficult to build a stack of hollow spheres with wet clay without the spheres changing shape. I chose to stack the spheres and then shape them into oranges, but would not do that in the future. It was very difficult to shape the inside of the stack."><img src="assets/images/IMG_9198.jpg" alt="Stack of oranges"/></div>
+    <div class="project" data-title="Fillo Color, 2020" data-img="assets/images/FilloColor.gif" data-desc="I wanted to fill the page with a bright expressive rainbow."><img src="assets/images/FilloColor.gif" alt="Fillo Color"/></div>
+    <div class="project" data-title="And, 2020" data-img="assets/images/and.gif" data-desc="A neverending wait for what comes after &amp;"><img src="assets/images/and.gif" alt="And"/></div>
+    <div class="project" data-title="Moving Name, 2020" data-img="assets/images/moving_name.gif" data-desc="Letters moving in the wind."><img src="assets/images/moving_name.gif" alt="Moving Name"/></div>
+    <div class="project" data-title="Rotating Heart, 2020" data-img="assets/images/rotating_heart.gif" data-desc="Playing with an inner rotating heart that's rotating at a higher rate than the outside."><img src="assets/images/rotating_heart.gif" alt="Rotating Heart"/></div>
+    <div class="project" data-title="Burning Candles Part 1, 2021" data-img="assets/images/IMG_2797.gif" data-desc="Handmade birthday candles in a pineapple cake."><img src="assets/images/IMG_2797.gif" alt="Burning Candles Part 1"/></div>
+    <div class="project" data-title="Burning Candles Part 2, 2021" data-img="assets/images/IMG_4045.gif" data-desc="I let the candles burn all the way down, discovering that the pineapple cake was so full of oils that it acted as a flame accelerant."><img src="assets/images/IMG_4045.gif" alt="Burning Candles Part 2"/></div>
+    <div class="project" data-title="Joined Part 1, 2020" data-img="assets/images/hue.gif" data-desc="An initial exploration into playing with movement and color change at the same time."><img src="assets/images/hue.gif" alt="Joined Part 1"/></div>
+    <div class="project" data-title="Joined Part 2, 2020" data-img="assets/images/joined_video_b3d835d7f58643648f28bb2c4857e797.gif" data-desc="Playing with movement and color and remaining reminders of the previous movement and color."><img src="assets/images/joined_video_b3d835d7f58643648f28bb2c4857e797.gif" alt="Joined Part 2"/></div>
+    <div class="project" data-title="Joined Part 3, 2020" data-img="assets/images/joined_video_d0821143e7414152a6e3b5cd641c6265.gif" data-desc="Separating out movement and color."><img src="assets/images/joined_video_d0821143e7414152a6e3b5cd641c6265.gif" alt="Joined Part 3"/></div>
+    <div class="project" data-title="Happy Face, 2020" data-img="assets/images/happy_face_graininess.gif" data-desc="An in your face happy face."><img src="assets/images/happy_face_graininess.gif" alt="Happy Face"/></div>
+    <div class="project" data-title="Jello Cake, 2019" data-img="assets/images/joined_video_ad9d3c4c416d42069ece1ae34e19deae.gif" data-desc="Cast agar jelly in letter molds and a jello cake. For a friend's birthday."><img src="assets/images/joined_video_ad9d3c4c416d42069ece1ae34e19deae.gif" alt="Jello Cake"/></div>
+    <div class="project" data-title="Rainbow Tears, 2020" data-img="assets/images/rainbow_tears.gif" data-desc="Inspired by a Sam Gilligan exhibit I saw at Dia Beacon Aug 2019."><img src="assets/images/rainbow_tears.gif" alt="Rainbow Tears"/></div>
+    <div class="project" data-title="Rainbows, 2020" data-img="assets/images/rainbows_2.gif" data-desc="What if my rainbow tears took over the whole screen."><img src="assets/images/rainbows_2.gif" alt="Rainbows"/></div>
   </div>
 
   <div id="lightbox-backdrop"></div>
   <div id="lightbox">
     <img id="lightbox-img" src="" alt=""/>
     <div id="lightbox-title"></div>
+    <div id="lightbox-desc"></div>
   </div>
   <button id="lightbox-close" aria-label="Close">&#x2715; close</button>
 
@@ -162,12 +165,14 @@
     var lightbox  = document.getElementById('lightbox');
     var lbImg     = document.getElementById('lightbox-img');
     var lbTitle   = document.getElementById('lightbox-title');
+    var lbDesc    = document.getElementById('lightbox-desc');
     var closeBtn  = document.getElementById('lightbox-close');
 
     document.querySelectorAll('.project').forEach(function(el) {
       el.addEventListener('click', function() {
         lbImg.src = el.dataset.img;
         lbTitle.textContent = el.dataset.title;
+        lbDesc.textContent = el.dataset.desc || '';
         backdrop.style.display = 'block';
         lightbox.style.display = 'flex';
         closeBtn.style.display = 'block';
