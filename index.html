@@ -11,13 +11,16 @@
 
     body {
       font-family: "Courier New", Courier, monospace;
-      font-size: 14px;
+      font-size: 16px;
       line-height: 1.65;
       color: #2B199F;
       background: radial-gradient(ellipse 70% 55% at var(--mx, 50%) var(--my, 50%), #FAF2ED 0%, #E4EAFF 70%);
       min-height: 100vh;
       padding: 28px 28px 40px;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     body::before {
@@ -31,8 +34,11 @@
       opacity: 0.18;
     }
 
+    .bio {
+      max-width: 560px;
+    }
+
     p {
-      max-width: 500px;
       margin-bottom: 1.25em;
     }
 
@@ -58,22 +64,48 @@
     nav {
       display: flex;
       gap: 24px;
-      margin-bottom: 2em;
+      font-size: 14px;
+      position: fixed;
+      top: 28px;
+      left: 28px;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     nav a {
       text-decoration: none;
-      opacity: 0.45;
+      color: #2B199F;
+      opacity: 0.6;
+      -webkit-text-stroke: 0.3px currentColor;
     }
 
     nav a.active {
       opacity: 1;
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 2px;
+      color: #2B199F;
+      text-decoration: none;
+      font-weight: bold;
+      -webkit-text-stroke: 0px;
     }
 
-    nav a:hover { opacity: 0.75; }
+    nav a:hover { opacity: 0.85; }
+
+    footer {
+      position: fixed;
+      bottom: 28px;
+      left: 28px;
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+    }
+
+    footer a { text-decoration: none; color: #2B199F; opacity: 0.6; -webkit-text-stroke: 0.3px currentColor; }
+    footer a:hover { opacity: 0.85; }
   </style>
 </head>
 <body>
@@ -84,44 +116,19 @@
     <a href="personal.html">personal</a>
   </nav>
 
-  <p>Sabrina Siu is a Design Lead and Staff Designer who connects product knowledge and business strategy with technical execution, partnering closely with engineering teams to turn ambiguity into high quality shipped products.</p>
+  <footer>
+    <a href="https://www.linkedin.com/in/sabrinasiu/" target="_blank">linkedin</a>
+    <a href="https://www.instagram.com/sooosabs/" target="_blank">instagram</a>
+    <a href="mailto:sabrinajsiu@gmail.com">email</a>
+  </footer>
 
-  <p>
-    <span class="section-label">Spotify</span>
-    Staff Design &amp; Strategy, Creators - May 2026 to present<br>
-    Design Lead, Creators - Aug 2023 to present<br>
-    Staff Designer, Creators - Aug 2023 to May 2026<br>
-    Senior Designer, Podcast Ads - Aug 2022 to Aug 2023<br>
-    Senior Designer, Backstage - Nov 2021 to Aug 2022<br>
-    Designer, Backstage - Oct 2019 to Nov 2021
-  </p>
+  <main>
+    <div class="bio">
+      <p>Sabrina Siu is a Design Lead and Staff Designer who connects product knowledge and business strategy with technical execution, partnering closely with engineering teams to turn ambiguity into high quality shipped products.</p>
+      <p>She is based in San Francisco.</p>
+    </div>
+  </main>
 
-  <p>
-    <span class="section-label">Augury</span>
-    Designer &amp; Researcher - Jan 2018 to Sept 2019
-  </p>
-
-  <p>
-    <span class="section-label">Alluvium</span>
-    First Designer - Jan 2018 to Sept 2019
-  </p>
-
-  <p>
-    <span class="section-label">The Tylt</span>
-    Designer - 2016 to 2017
-  </p>
-
-  <p>
-    <span class="section-label">ExxonMobil</span>
-    Project Manager - 2013 to 2015
-  </p>
-
-  <p>
-    <span class="section-label">Princeton University</span>
-    Civil and Environmental Engineering, focus in Architecture
-  </p>
-
-  <p><span class="deco">&bull;&bull;&bull;</span></p>
 
   <script>
     let tx = 50, ty = 50, cx = 50, cy = 50;

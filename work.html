@@ -16,8 +16,11 @@
       color: #2B199F;
       background: radial-gradient(ellipse 70% 55% at var(--mx, 50%) var(--my, 50%), #FAF2ED 0%, #E4EAFF 70%);
       min-height: 100vh;
-      padding: 28px 28px 40px;
+      padding: 28px 28px 120px;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     body::before {
@@ -31,13 +34,6 @@
       opacity: 0.18;
     }
 
-    p {
-      max-width: 500px;
-      margin-bottom: 1.25em;
-    }
-
-    p:last-child { margin-bottom: 0; }
-
     a {
       color: inherit;
       text-decoration: underline;
@@ -47,21 +43,15 @@
 
     a:hover { opacity: 0.7; }
 
-    .section-label { display: block; font-weight: normal; -webkit-text-stroke: 0.4px currentColor; }
-
-    p + p:has(.section-label) { margin-top: 4em; }
-    div + p:has(.section-label) { margin-top: 3.5em; }
-
     nav {
       display: flex;
       gap: 24px;
-      margin-bottom: 2em;
+      position: fixed;
+      top: 28px;
+      left: 28px;
     }
 
-    nav a {
-      text-decoration: none;
-      opacity: 0.45;
-    }
+    nav a { text-decoration: none; opacity: 0.45; }
 
     nav a.active {
       opacity: 1;
@@ -72,14 +62,128 @@
 
     nav a:hover { opacity: 0.75; }
 
-    .announcements {
-      margin-top: 0.5em;
+    .layout {
+      display: flex;
+      gap: 80px;
+      align-items: flex-start;
+    }
+
+    .cv-list {
+      flex-shrink: 0;
+    }
+
+    .cv-entry {
+      margin-bottom: 2em;
+    }
+
+    .cv-header {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .company-name {
+      -webkit-text-stroke: 0.4px currentColor;
+    }
+
+    .toggle {
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 16px;
+      color: #2B199F;
+      cursor: pointer;
+      padding: 0;
+      line-height: 1;
+      opacity: 0.6;
+    }
+
+    .toggle:hover { opacity: 1; }
+
+    .cv-roles {
+      display: block;
+    }
+
+    #details-panel {
+      display: none;
       max-width: 500px;
     }
 
-    .announcements p {
-      margin-bottom: 0.5em;
+    #details-title {
+      font-size: 14px;
+      margin-bottom: 1em;
     }
+
+    #details-desc {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 1.5em;
+    }
+
+    #details-links {
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    #details-links p { margin-bottom: 0.5em; }
+
+    /* lightbox (narrow viewports) */
+    #lb-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(226, 237, 230, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 50;
+    }
+
+    #lb {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 51;
+      flex-direction: column;
+      overflow-y: auto;
+      padding: 80px 40px 80px;
+    }
+
+    #lb-title {
+      font-size: 15px;
+      margin-bottom: 1em;
+      -webkit-text-stroke: 0.5px currentColor;
+    }
+
+    #lb-desc {
+      font-size: 14px;
+      line-height: 1.75;
+      opacity: 0.85;
+      -webkit-text-stroke: 0.4px currentColor;
+      margin-bottom: 1.5em;
+    }
+
+    #lb-links {
+      font-size: 14px;
+      line-height: 1.75;
+      -webkit-text-stroke: 0.4px currentColor;
+    }
+
+    #lb-links p { margin-bottom: 0.5em; }
+
+    #lb-close {
+      display: none;
+      position: fixed;
+      top: 28px; right: 32px;
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-size: 14px;
+      color: #2B199F;
+      cursor: pointer;
+      opacity: 0.6;
+      z-index: 52;
+    }
+
+    #lb-close:hover { opacity: 1; }
   </style>
 </head>
 <body>
@@ -90,40 +194,196 @@
     <a href="personal.html">personal</a>
   </nav>
 
-  <p>
-    <span class="section-label">Spotify</span>
-    Worked in 3 different orgs. Started in Engineering and Data Science tooling, then switched to lead the designers in the Ads Design team, and reorged to work in Podcasts with selected Ads Designers. In my most recent role as the most senior Designer in podcasts, I focused on taking abstract ideas and making them into reality, often partnering with Engineering or Commercial leads.
-  </p>
+  <div class="layout">
+    <div class="cv-list">
 
-  <div class="announcements">
-    <p>Select Announcements:</p>
-    <p><a href="https://newsroom.spotify.com/2023-02-23/spotify-has-paid-more-than-100-million-to-podcasters-through-its-podcast-subscriptions-feature/" target="_blank">Spotify Has Paid More Than $100 Million to Podcasters to Take on Competitors</a></p>
-    <p><a href="https://newsroom.spotify.com/2024-09-10/video-podcasts-monetization-spotify/" target="_blank">Making It Easier for Video Podcasters to Earn on Spotify</a></p>
-    <p><a href="https://newsroom.spotify.com/2024-03-07/spotify-for-creators-podcasting-home/" target="_blank">Biggest. Change. Ever. Go Inside Spotify for Creators, the New Home of Podcasting on Spotify</a></p>
-    <p><a href="https://medium.com/spotify-design/designing-data-science-tools-at-spotify-c01347d5e85b" target="_blank">Designing Data Science Tools at Spotify</a></p>
+      <div class="cv-entry">
+        <div class="cv-header">
+          <span class="company-name">Spotify</span>
+          <button class="toggle" data-company="Spotify">+</button>
+        </div>
+        <span class="cv-roles">
+          Staff Design &amp; Strategy, Creators — May 2026 to present<br>
+          Design Lead, Creators — Aug 2023 to present<br>
+          Staff Designer, Creators — Aug 2023 to May 2026<br>
+          Senior Designer, Podcast Ads — Aug 2022 to Aug 2023<br>
+          Senior Designer, Backstage — Nov 2021 to Aug 2022<br>
+          Designer, Backstage — Oct 2019 to Nov 2021
+        </span>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-header">
+          <span class="company-name">Augury</span>
+          <button class="toggle" data-company="Augury">+</button>
+        </div>
+        <span class="cv-roles">Designer &amp; Researcher — Jan 2018 to Sept 2019</span>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-header">
+          <span class="company-name">Alluvium</span>
+          <button class="toggle" data-company="Alluvium">+</button>
+        </div>
+        <span class="cv-roles">First Designer — Jan 2018 to Sept 2019</span>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-header">
+          <span class="company-name">The Tylt</span>
+          <button class="toggle" data-company="The Tylt">+</button>
+        </div>
+        <span class="cv-roles">Designer — 2016 to 2017</span>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-header">
+          <span class="company-name">ExxonMobil</span>
+          <button class="toggle" data-company="ExxonMobil">+</button>
+        </div>
+        <span class="cv-roles">Project Manager — 2013 to 2015</span>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-header">
+          <span class="company-name">Princeton University</span>
+          <button class="toggle" data-company="Princeton University">+</button>
+        </div>
+        <span class="cv-roles">Civil and Environmental Engineering, focus in Architecture</span>
+      </div>
+
+    </div>
+
+    <div id="details-panel">
+      <div id="details-title"></div>
+      <div id="details-desc"></div>
+      <div id="details-links"></div>
+    </div>
   </div>
 
-  <p>
-    <span class="section-label">Augury</span>
-    Designed anomaly detection features for machine operators. Acquired with Alluvium Machine Learning team.
-  </p>
-
-  <div class="announcements">
-    <p>Select Announcements:</p>
-    <p><a href="https://www.augury.com/media-center/press/augury-series-c-acquisition-alluvium/" target="_blank">Augury Acquires Alluvium to Bring Machine Learning to Industrial Maintenance</a></p>
+  <div id="lb-backdrop"></div>
+  <div id="lb">
+    <div id="lb-title"></div>
+    <div id="lb-desc"></div>
+    <div id="lb-links"></div>
   </div>
-
-  <p>
-    <span class="section-label">Alluvium</span>
-    Joined as founding Designer at a WorkBench backed startup focused on building an anomaly detection platform for machine operators. Ended up in hybrid Chief of Staff role, pitching prospective clients, presenting at conferences, and creating trade show collateral and booth designs.
-  </p>
-
-  <p>
-    <span class="section-label">The Tylt</span>
-    Worked on an in house startup for Advance Local, specializing in interactive editorial polling on culture, politics, entertainment, and sports. Designed interactive elements.
-  </p>
+  <button id="lb-close" aria-label="Close">&#x2715; close</button>
 
   <script>
+    var companies = {
+      'Spotify': {
+        desc: 'Worked in 3 different orgs. Started in Engineering and Data Science tooling, then switched to lead the designers in the Ads Design team, and reorged to work in Podcasts with selected Ads Designers. In my most recent role as the most senior Designer in podcasts, I focused on taking abstract ideas and making them into reality, often partnering with Engineering or Commercial leads.',
+        links: [
+          { text: 'Spotify Has Paid More Than $100 Million to Podcasters to Take on Competitors', url: 'https://newsroom.spotify.com/2023-02-23/spotify-has-paid-more-than-100-million-to-podcasters-through-its-podcast-subscriptions-feature/' },
+          { text: 'Making It Easier for Video Podcasters to Earn on Spotify', url: 'https://newsroom.spotify.com/2024-09-10/video-podcasts-monetization-spotify/' },
+          { text: 'Biggest. Change. Ever. Go Inside Spotify for Creators, the New Home of Podcasting on Spotify', url: 'https://newsroom.spotify.com/2024-03-07/spotify-for-creators-podcasting-home/' },
+          { text: 'Designing Data Science Tools at Spotify', url: 'https://medium.com/spotify-design/designing-data-science-tools-at-spotify-c01347d5e85b' }
+        ]
+      },
+      'Augury': {
+        desc: 'Designed anomaly detection features for machine operators. Acquired with Alluvium Machine Learning team.',
+        links: [
+          { text: 'Augury Acquires Alluvium to Bring Machine Learning to Industrial Maintenance', url: 'https://www.augury.com/media-center/press/augury-series-c-acquisition-alluvium/' }
+        ]
+      },
+      'Alluvium': {
+        desc: 'Joined as founding Designer at a WorkBench backed startup focused on building an anomaly detection platform for machine operators. Ended up in hybrid Chief of Staff role, pitching prospective clients, presenting at conferences, and creating trade show collateral and booth designs.',
+        links: []
+      },
+      'The Tylt': {
+        desc: 'Worked on an in house startup for Advance Local, specializing in interactive editorial polling on culture, politics, entertainment, and sports. Designed interactive elements.',
+        links: []
+      },
+      'ExxonMobil': {
+        desc: 'Project Managed environmental cleanup sites in the Midwest and Northeast.',
+        links: []
+      },
+      'Princeton University': {
+        desc: 'Majored in Civil Engineering with a focus in Architecture. Worked in the Form Finding Lab, conducting research on the mechanics, design and construction of lightweight systems. Published my senior thesis in elastomer structures in Applied Physics Letters. President of Princeton student dance group. Member of Colonial Club.',
+        links: [
+          { text: 'ResearchGate Profile', url: 'https://www.researchgate.net/profile/Sabrina-Siu' },
+          { text: 'Form Finding Lab — Revisiting a Senior Thesis', url: 'https://formfindinglab.wordpress.com/2016/10/26/revisiting-a-sr-thesis-smart-structures/' }
+        ]
+      }
+    };
+
+    var panel     = document.getElementById('details-panel');
+    var detTitle  = document.getElementById('details-title');
+    var detDesc   = document.getElementById('details-desc');
+    var detLinks  = document.getElementById('details-links');
+    var activeBtn = null;
+
+    var backdrop  = document.getElementById('lb-backdrop');
+    var lb        = document.getElementById('lb');
+    var lbTitle   = document.getElementById('lb-title');
+    var lbDesc    = document.getElementById('lb-desc');
+    var lbLinks   = document.getElementById('lb-links');
+    var lbClose   = document.getElementById('lb-close');
+
+    var BREAKPOINT = 900;
+
+    function populateLinks(container, links) {
+      container.innerHTML = '';
+      if (links.length) {
+        var label = document.createElement('p');
+        label.textContent = 'Select Announcements:';
+        container.appendChild(label);
+        links.forEach(function(link) {
+          var p = document.createElement('p');
+          var a = document.createElement('a');
+          a.href = link.url;
+          a.target = '_blank';
+          a.textContent = link.text;
+          p.appendChild(a);
+          container.appendChild(p);
+        });
+      }
+    }
+
+    function closeLightbox() {
+      backdrop.style.display = 'none';
+      lb.style.display = 'none';
+      lbClose.style.display = 'none';
+    }
+
+    backdrop.addEventListener('click', closeLightbox);
+    lb.addEventListener('click', function(e) { if (e.target === lb) closeLightbox(); });
+    lbClose.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
+
+    document.querySelectorAll('.toggle').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var key = btn.dataset.company;
+        var data = companies[key];
+
+        if (window.innerWidth <= BREAKPOINT) {
+          lbTitle.textContent = key;
+          lbDesc.textContent = data.desc;
+          populateLinks(lbLinks, data.links);
+          backdrop.style.display = 'block';
+          lb.style.display = 'flex';
+          lbClose.style.display = 'block';
+          return;
+        }
+
+        if (activeBtn === btn) {
+          btn.textContent = '+';
+          panel.style.display = 'none';
+          activeBtn = null;
+          return;
+        }
+
+        if (activeBtn) activeBtn.textContent = '+';
+        activeBtn = btn;
+        btn.textContent = '−';
+
+        detTitle.textContent = key;
+        detDesc.textContent = data.desc;
+        populateLinks(detLinks, data.links);
+        panel.style.display = 'block';
+      });
+    });
+
     let tx = 50, ty = 50, cx = 50, cy = 50;
     document.addEventListener('mousemove', e => {
       tx = (e.clientX / window.innerWidth) * 100;
