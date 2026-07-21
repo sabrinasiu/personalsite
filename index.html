@@ -7,7 +7,8 @@
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    html, body { height: 100%; }
+    html { height: 100%; background: #E4EAFF; }
+    body { height: 100%; }
 
     body {
       font-family: "Courier New", Courier, monospace;
@@ -66,8 +67,13 @@
       gap: 24px;
       font-size: 14px;
       position: fixed;
-      top: 28px;
-      left: 28px;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 28px 28px 16px;
+      background: radial-gradient(ellipse 70% 55% at var(--mx, 50%) var(--my, 50%), #FAF2ED 0%, #E4EAFF 70%);
+      background-attachment: fixed;
+      z-index: 100;
     }
 
     main {
