@@ -55,7 +55,7 @@
     /* gallery */
     .gallery {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 12px;
       padding: 0 28px;
     }
@@ -80,8 +80,8 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(226, 237, 230, 0.92);
-      backdrop-filter: blur(8px);
+      background: radial-gradient(ellipse 70% 55% at var(--mx, 50%) var(--my, 50%), #ffffff 0%, #E4EAFF 70%);
+      background-attachment: fixed;
       z-index: 50;
     }
 
@@ -122,7 +122,7 @@
       color: #2B199F;
       cursor: pointer;
       opacity: 0.6;
-      z-index: 52;
+      z-index: 101;
     }
 
     #lightbox-close:hover { opacity: 1; }
@@ -167,7 +167,7 @@
     <div id="lightbox-title"></div>
     <div id="lightbox-desc"></div>
   </div>
-  <button id="lightbox-close" aria-label="Close">&#x2715; close</button>
+  <button id="lightbox-close" aria-label="Close">&#x2715;</button>
 
   <script>
     var backdrop  = document.getElementById('lightbox-backdrop');
@@ -185,6 +185,7 @@
         backdrop.style.display = 'block';
         lightbox.style.display = 'flex';
         closeBtn.style.display = 'block';
+        document.querySelector('nav').style.display = 'none';
       });
     });
 
@@ -192,6 +193,7 @@
       backdrop.style.display = 'none';
       lightbox.style.display = 'none';
       closeBtn.style.display = 'none';
+      document.querySelector('nav').style.display = '';
     }
 
     backdrop.addEventListener('click', close);

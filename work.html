@@ -12,16 +12,13 @@
 
     body {
       font-family: "Courier New", Courier, monospace;
-      font-size: 14px;
+      font-size: 16px;
       line-height: 1.65;
       color: #2B199F;
       background: radial-gradient(ellipse 70% 55% at var(--mx, 50%) var(--my, 50%), #FAF2ED 0%, #E4EAFF 70%);
       min-height: 100vh;
-      padding: 140px 28px 120px;
+      padding: 80px 28px 120px;
       position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
       overflow-y: auto;
     }
 
@@ -76,7 +73,8 @@
     }
 
     .cv-list {
-      flex-shrink: 0;
+      min-width: 0;
+      overflow-wrap: break-word;
     }
 
     .cv-entry {
@@ -139,8 +137,8 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(226, 237, 230, 0.7);
-      backdrop-filter: blur(8px);
+      background: radial-gradient(ellipse 70% 55% at var(--mx, 50%) var(--my, 50%), #FAF2ED 0%, #E4EAFF 70%);
+      background-attachment: fixed;
       z-index: 50;
     }
 
@@ -183,11 +181,11 @@
       background: none;
       border: none;
       font-family: inherit;
-      font-size: 14px;
+      font-size: 18px;
       color: #2B199F;
       cursor: pointer;
       opacity: 0.6;
-      z-index: 52;
+      z-index: 101;
     }
 
     #lb-close:hover { opacity: 1; }
@@ -274,12 +272,12 @@
     <div id="lb-desc"></div>
     <div id="lb-links"></div>
   </div>
-  <button id="lb-close" aria-label="Close">&#x2715; close</button>
+  <button id="lb-close" aria-label="Close">&#x2715;</button>
 
   <script>
     var companies = {
       'Spotify': {
-        desc: 'Worked in 3 different orgs. Started in Engineering and Data Science tooling, then switched to lead the designers in the Ads Design team, and reorged to work in Podcasts with selected Ads Designers. In my most recent role as the most senior Designer in podcasts, I focused on taking abstract ideas and making them into reality, often partnering with Engineering or Commercial leads.',
+        desc: 'Designed for 3 different parts of Spotify, starting from internal tooling and then moving to consumer facing platforms. Started in Engineering and Data Science tooling, then switched to lead designers in the Ads Design team, and moved to Podcasts with selected Ads Designers. In my most recent role as Staff Designer in podcasts, I focused on taking abstract ideas and making them into reality, often partnering with Engineering or Commercial leads.',
         links: [
           { text: 'Spotify Has Paid More Than $100 Million to Podcasters to Take on Competitors', url: 'https://newsroom.spotify.com/2023-02-23/spotify-has-paid-more-than-100-million-to-podcasters-through-its-podcast-subscriptions-feature/' },
           { text: 'Making It Easier for Video Podcasters to Earn on Spotify', url: 'https://newsroom.spotify.com/2024-09-10/video-podcasts-monetization-spotify/' },
@@ -351,6 +349,7 @@
       backdrop.style.display = 'none';
       lb.style.display = 'none';
       lbClose.style.display = 'none';
+      document.querySelector('nav').style.display = '';
     }
 
     backdrop.addEventListener('click', closeLightbox);
@@ -370,6 +369,7 @@
           backdrop.style.display = 'block';
           lb.style.display = 'flex';
           lbClose.style.display = 'block';
+          document.querySelector('nav').style.display = 'none';
           return;
         }
 
